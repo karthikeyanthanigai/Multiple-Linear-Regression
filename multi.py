@@ -45,34 +45,7 @@ regressor.fit(X_train, y_train)
 #predicting the value
 y_pred = regressor.predict(X_test)
 
-#r2 result
+#r2_score result
 from sklearn.metrics import r2_score, mean_squared_error
 r_squared = r2_score(y_test, y_pred)
 print("Coefficient of Determination = ",r_squared)
-
-
-#rmse and r2 results for training set
-from sklearn.metrics import r2_score , mean_squared_error
-
-rmse_train = (np.sqrt(mean_squared_error(y_train, regressor.predict(X_train) )))
-r_squared_train = r2_score(y_train , regressor.predict(X_train))
-print("R squared for the training set")
-print("---------------------------------")
-print(r_squared_train)
-print("---------------------------------")
-print("RMSEfor the training set")
-print("---------------------------------")
-print(rmse_train)
-
-#rmse and r2 results for test set
-rmse_test = (np.sqrt(mean_squared_error(y_test, regressor.predict(X_test) )))
-r_squared_test = r2_score(y_test , regressor.predict(X_test))
-print("R squared for the testing set")
-print("---------------------------------")
-print(r_squared_test)
-print("---------------------------------")
-print("RMSEfor the testing set")
-print("---------------------------------")
-print(rmse_test)
-
-#The RMSE and the R squared for the test and the training set is almost the same , which shows that our model has not done any overfitting. The model can be well improved by going to more Algorithms like Polynomial, SVMs , foresting and Boosting Algorithms.
