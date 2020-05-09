@@ -37,6 +37,19 @@ X = sc_X.fit_transform(X)
 from sklearn.model_selection import train_test_split
 X_train ,X_test, y_train ,y_test = train_test_split(X, y, test_size=0.2, random_state = 0)
 
+#ols
+from sklearn.linear_model import SGDRegressor, LinearRegression
+lin_reg=LinearRegression()
+lin_reg.fit(X_train,y_train)
+
+#predicting the value
+y_pred1= lin_reg.predict(X_test)
+
+#r2_score result
+from sklearn.metrics import r2_score, mean_squared_error
+r_squared1 = r2_score(y_test, y_pred1)
+print("Coefficient of Determination using ols method = ",r_squared1)
+
 #SGD
 from sklearn.linear_model import SGDRegressor, LinearRegression
 regressor = SGDRegressor(max_iter=10000, tol=1e-3, alpha =0.01, random_state = 0, learning_rate = 'invscaling' , eta0 = 0.0001)
@@ -48,4 +61,4 @@ y_pred = regressor.predict(X_test)
 #r2_score result
 from sklearn.metrics import r2_score, mean_squared_error
 r_squared = r2_score(y_test, y_pred)
-print("Coefficient of Determination = ",r_squared)
+print("Coefficient of Determination using sgd method = ",r_squared)
