@@ -52,7 +52,7 @@ print("Coefficient of Determination using ols method = ",r_squared1)
 
 #SGD
 from sklearn.linear_model import SGDRegressor, LinearRegression
-regressor = SGDRegressor(max_iter=10000, tol=1e-3, alpha =0.01, random_state = 0, learning_rate = 'invscaling' , eta0 = 0.0001)
+regressor = SGDRegressor(max_iter=10000, tol=1e-3)
 regressor.fit(X_train, y_train)
 
 #predicting the value
